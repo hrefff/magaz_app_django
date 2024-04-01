@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Magaz - Главная{% endblock %}
+{% block active_index %}active{% endblock %}
+
+{% block content %}
+
+<h1>Главная страница</h1>
+<hr>
+
+<style>
+  .carousel-control-prev-icon {
+    background-color: black;
+    border-radius: 50px;
+  }
+
+  .carousel-control-next-icon {
+    background-color: black;
+    border-radius: 50px;
+  }
+
+  .carousel-caption {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+</style>
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true"
+      aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img
+        src="https://bibikar57.ru/images/car-parts.png"
+        class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Лучший каталог запчастей в России</h5>
+        <p>В нашем каталоге найдется любая запчасть для вашего авто.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img
+        src="https://pubimg.nodacdn.net/images/100cb890e382a779e112c071a3c4bb1c1a.jpeg"
+        class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Только оригинальные запчасти</h5>
+        <p>Мы работаем только с официальными поставщиками.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://vinservic.ru/wp-content/uploads/2021/01/27-2.jpg"
+        class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Гарантия от производителя</h5>
+        <p>Даем фирменную гарантию за все запчсти и расходные материалы.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{% endblock content %}

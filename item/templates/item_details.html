@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Magaz - Каталог{% endblock title %}
+{% block active_catalog %}active{% endblock active_catalog %}
+
+{% block content %}
+
+<h1>Каталог товаров</h1>
+
+{% if user.is_superuser %}
+<a href="{% url 'add-item' %}" class="btn btn-primary">Добавить товар</a>
+{% endif %}
+
+<hr>
+<div class="card mx-auto" style="width: 23rem;">
+  <img src="https://via.placeholder.com/400x280.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <!-- <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    <p class="text-start card-text"><b>Название: </b>{{ item.item_name }}</p>
+    <p class="text-start"><b>Описание: </b>{{ item.description }}</p>
+    <p class="text-start"><b>Группы: </b>{{ item.groups.all|join:", " }}</p>
+    {% if user.is_superuser %}
+    <a href="{% url 'change-item' item_id=item.id %}" class="btn btn-primary card-link">Редактировать</a>
+    <!-- <a href="{% url 'delete-item' item_id=item.id %}" class="btn btn-danger card-link">Удалить</a> -->
+    {% endif %}
+  </div>
+</div>
+
+<div class="p-3 my-3 text-white">
+  <a href="{% url 'catalog' %}">
+    &lt;- назад в каталог</a>
+</div>
+
+
+{% endblock content %}

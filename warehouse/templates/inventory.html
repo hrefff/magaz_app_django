@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Magaz - Складские запасы{% endblock title %}
+{% block active_inventory %}active{% endblock active_inventory %}
+
+{% block content %}
+
+<h1>Складские запасы</h1>
+<hr>
+
+{% if inventories %}
+<div class="text-start">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+      Товар
+      <span>Количество</span>
+    </li>
+    {% for inventory in inventories %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <!-- <a href="{% url 'inventory' %}{{ inventory.id }}/"> -->
+      {{ inventory.item_id }}
+      <!-- </a> -->
+      <span class="badge bg-primary rounded-pill">{{ inventory.quantity }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<p>Нет товаров на складе.</p>
+{% endif %}
+
+{% endblock content %}

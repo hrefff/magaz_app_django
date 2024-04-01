@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Magaz - Продажи{% endblock title %}
+{% block active_sale %}active{% endblock active_sale %}
+
+{% block content %}
+
+<h1>Продажи</h1>
+<a href="{% url 'add-sale' %}" class="btn btn-primary">Отгрузить товар</a>
+<hr>
+{% if sales %}
+<div class="text-start">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+      Заказ на продажу
+      <span>Дата создания</span>
+    </li>
+    {% for sale in sales %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <a href="{% url 'sale' %}{{ sale.id }}/">{{ sale.sale_order }}</a>
+      <span class="badge bg-primary rounded-pill">{{ sale.created }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<p>Отгрузок еще не было.</p>
+{% endif %}
+
+{% endblock content %}

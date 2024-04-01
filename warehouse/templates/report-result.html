@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Magaz - Отчеты{% endblock title %}
+{% block active_report %}active{% endblock active_report %}
+
+{% block content %}
+
+<h1>Отчеты</h1>
+<hr><h3> {{ report.name }} </h3><hr>
+
+
+{% if result %}
+{{ result }}
+
+{% else %}
+<p>Нет данных</p>
+{% endif %}
+
+{% endblock content %}

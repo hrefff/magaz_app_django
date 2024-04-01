@@ -1,0 +1,56 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" aria-label="Ninth navbar example">
+    <div class="container-xl">
+      <a class="navbar-brand text-dark text-decoration-none border mx-1 py-2 px-5" href="{% url 'index' %}">- M A G A Z
+        -</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbartop"
+        aria-controls="navbartop" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbartop">
+        <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a href="/" class="nav-link px-3 link-primary">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'catalog' %}" class="nav-link px-3 link-primary">Каталог</a>
+          </li>
+
+          {% if user.is_superuser %}
+          <li class="nav-item"><a href="{% url 'income' %}" class="nav-link px-3 link-primary">Приемки</a>
+          </li>
+          <li class="nav-item"><a href="{% url 'sale' %}" class="nav-link px-3 link-primary">Продажи</a>
+          </li>
+          <li class="nav-item"><a href="{% url 'inventory' %}" class="nav-link px-3 link-primary">Запасы</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-3 link-primary">О
+              проекте</a>
+          </li>
+
+        </ul>
+
+        <div class="text-start">
+          {% if user.is_authenticated %}
+          <ul class="nav">
+            <li><span class="px-4">
+                <img src="https://ak.picdn.net/contributors/3038285/avatars/thumb.jpg"
+                  style="width:40px; height: 40px; border-radius: 50%;">
+                {{user.username}}</span></li>
+            <li><a class="btn btn-outline-primary me-2" href="{% url 'logout' %}" role="button">Выйти</a></li>
+          </ul>
+
+          {% else %}
+          <a class="btn btn-outline-primary me-2" href="{% url 'login' %}" role="button">Войти</a>
+          <a class="btn btn-success" href="{% url 'django_registration_register' %}" role="button">Регистрация</a>
+
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
